@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- link main.css -->
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+
+<h2>Open Note Gallery</h2>
+
+<!-- a button to add a new note -->
+<h4><button onclick="window.location.href='/new'">New</button></h4>
+
+{% for note in notes %}
+
+<div class="responsive">
+  <div class="gallery">
+    <div class="gallery-author">{{ note[0] }}</div>
+    <div class="gallery-text">
+        {% for paragraph in note[1] %}
+            <p>{{ paragraph }}</p>
+        {% endfor %}
+    </div>
+    <!-- <a target="_blank" href="img_5terre.jpg">
+      <img src="img_5terre.jpg" alt="Cinque Terre" width="600" height="400">
+    </a> -->
+    <div class="desc">Note #{{ loop.index }}</div>
+  </div>
+</div>
+
+{% endfor %}
+
+<div class="clearfix"></div>
+
+<!-- <div style="padding:6px;">
+  <p>This example use media queries to re-arrange the images on different screen sizes: for screens larger than 700px wide, it will show four images side by side, for screens smaller than 700px, it will show two images side by side. For screens smaller than 500px, the images will stack vertically (100%).</p>
+  <p>You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
+</div> -->
+
+</body>
+</html>
+
+

@@ -1,0 +1,123 @@
+body {
+    font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+    background-color: #f1f1f1;
+}
+/* centered h2 */
+h2 {
+  text-align: center;
+}
+
+/* centered h4 */
+h4 {
+    text-align: center;
+}
+
+div.gallery {
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+div.gallery-author {
+  /* set size smaller */
+  font-size: 15px;
+  /* underline */
+  text-decoration: underline;
+  padding: 8px;
+  text-align: center;
+}
+
+div.gallery-text {
+    /* set size larger */
+    font-size: 18px;
+    /* set font to bold */
+    font-weight: bold;
+    /* set top and bottom/left and right padding */
+    padding: 0px 18px;
+}
+
+div.desc {
+  /* set size smaller */
+  font-size: 12px;
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+textarea[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div.create-note {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
