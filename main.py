@@ -11,7 +11,7 @@ def show_notes():
     
     # add all notes to list
     notes = []
-    for index, note_file in enumerate(note_files):
+    for note_file in note_files:
         note_dict = get_from_file(note_file)
         notes.append(note_dict)
     
