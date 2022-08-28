@@ -8,21 +8,20 @@
 <div class="create-note">
   <form action="{{ url_for("new_note") }}" method="post">
     <label for="note">Note</label>
-    <textarea type="text" id="note" name="new-note" placeholder="I love big boy big"></textarea>
+    <textarea type="text" id="note" name="new-note" placeholder="Share your knowledge. It is a way to achieve immortality." required></textarea>
 
     <label for="auth">Author</label>
-    <input type="text" id="auth" name="author" placeholder="big boy big">
+    <br>
+    <input type="text" id="auth" name="author" placeholder="Dalai Lama" required>
 
-    <!-- <label for="country">Country</label>
-    <select id="country" name="country">
-      <option value="australia">Australia</option>
-      <option value="canada">Canada</option>
-      <option value="usa">USA</option>
-    </select> -->
-  
+    <br>
+    <br>
+
     <button type="submit">Submit</button>
   </form>
 </div>
+
+<a href="/">Return to Gallery</a>
 
 </body>
 </html>

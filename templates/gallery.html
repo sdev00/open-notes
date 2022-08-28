@@ -9,22 +9,23 @@
 <h2>Open Note Gallery</h2>
 
 <!-- a button to add a new note -->
-<h4><button onclick="window.location.href='/new'">New</button></h4>
+<h4><button onclick="window.location.href='/new'">Add Your Note</button></h4>
 
 {% for note in notes %}
 
 <div class="responsive">
   <div class="gallery">
-    <div class="gallery-author">{{ note[0] }}</div>
+    <div class="gallery-header">Note #{{ note[0] + 1 }}</div>
     <div class="gallery-text">
-        {% for paragraph in note[1] %}
+        {% for paragraph in note[1]["note"] %}
             <p>{{ paragraph }}</p>
         {% endfor %}
     </div>
-    <!-- <a target="_blank" href="img_5terre.jpg">
-      <img src="img_5terre.jpg" alt="Cinque Terre" width="600" height="400">
-    </a> -->
-    <div class="desc">Note #{{ loop.index }}</div>
+    <div class="gallery-author">
+      {{ note[1]["author"] }}
+      <br>
+      {{ note[1]["date"] }}
+    </div>
   </div>
 </div>
 
