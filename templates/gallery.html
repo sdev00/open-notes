@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- link main.css -->
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+
+<h2>Open Note Gallery</h2>
+
+<!-- a button to add a new note -->
+<h4><button onclick="window.location.href='/new'">Add Your Note</button></h4>
+
+{% for note in notes %}
+
+<div class="responsive">
+  <div class="gallery">
+    <div class="gallery-header">Note #{{ note[0] + 1 }}</div>
+    <div class="gallery-text">
+        {% for paragraph in note[1]["note"] %}
+            <p>{{ paragraph }}</p>
+        {% endfor %}
+    </div>
+    <div class="gallery-description">
+      <div class="gallery-author">{{ note[1]["author"] }}</div>
+      <div class="gallery-date">on {{ note[1]["date"] }}</div>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+
+<div class="clearfix"></div>
+
+</body>
+</html>
