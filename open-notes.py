@@ -1,3 +1,4 @@
+from venv import create
 from flask import Flask, request, render_template
 import os
 from datetime import datetime
@@ -13,7 +14,7 @@ def create_app():
         # add all notes to list
         notes = []
         for note_file in note_files:
-            note_dict = get_from_file(note_file)
+            note_dict = get_note_from_file(note_file)
             notes.append(note_dict)
         
         # sort notes by date and time
@@ -45,10 +46,10 @@ def create_app():
             milliseconds = datetime.now().timestamp() * 1000
 
             # write note to new file
-            write_to_file(author, date, time, milliseconds, note)
+            write_note_to_file(author, date, time, milliseconds, note)
 
             # get the note dictionary
-            note_dict = get_from_file(f"note-{date}-{milliseconds}.txt")
+            note_dict = get_note_from_file(f"note-{date}-{milliseconds}.txt")
 
             # count how many notes are in the folder
             count = len(os.listdir("notes"))
@@ -56,11 +57,11 @@ def create_app():
             return render_template("note-submitted.html", note=(count, note_dict))
         return render_template("new-note.html")
 
-    def write_to_file(author, date, time, milliseconds, note):
+    def write_note_to_file(author, date, time, milliseconds, note):
         with open(f'notes/note-{date}-{milliseconds}.txt', 'w') as f:
             f.write(f'{author}\n{date}\n{time}\n{note}')
 
-    def get_from_file(file):
+    def get_note_from_file(file):
         with open(f'notes/{file}', 'r') as f:
             text = f.read().splitlines()
             author = text[0]
@@ -70,3 +71,7 @@ def create_app():
             return {"author": author, "date": date, "time": time, "note": note}
 
     return app
+
+if __name__ == "__main__":
+    app = create_app()
+    app.run()
